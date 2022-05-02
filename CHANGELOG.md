@@ -1,8 +1,9 @@
-# default-template
+# Changelog
 
-## 0.0.2-next.0
-### Patch Changes
+## Part 1.1: Orientation
 
-
-
-- [chore] upgrade cookie library ([#4592](https://github.com/sveltejs/kit/pull/4592))
+- Clear out all example app code,
+- Add styles to app.css,
+- Create new `static/images` folder,
+- Add Tomster to `static/images/` folder,
+- Add welcome message to routes/index.svelte.
