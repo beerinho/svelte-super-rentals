@@ -1,10 +1,9 @@
 <script context="module" type="ts">
-	import '../app.css';
+	import Jumbo from '../components/jumbo.svelte';
 </script>
 
-<div class="jumbo">
-	<div class="right tomster" />
+<Jumbo>
 	<h2>Welcome to Super Rentals!</h2>
 	<p>We hope you find exactly what you're looking for in a place to stay.</p>
 	<a href="/about" class="button">About Us</a>
-</div>
+</Jumbo>

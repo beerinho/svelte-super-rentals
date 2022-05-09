@@ -1,9 +1,8 @@
 <script context="module" type="ts">
-	import '../app.css';
+	import Jumbo from '../components/jumbo.svelte';
 </script>
 
-<div class="jumbo">
-	<div class="right tomster" />
+<Jumbo>
 	<h2>Contact Us</h2>
 	<p>
 		Super Rentals Representatives would love to help you<br />
@@ -19,4 +18,4 @@
 		<a href="mailto:superrentalsrep@emberjs.com">superrentalsrep@emberjs.com</a>
 	</address>
 	<a href="/about" class="button">About</a>
-</div>
+</Jumbo>
