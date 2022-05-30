@@ -1,6 +1,35 @@
 <script context="module" type="ts">
+	import type { Rental as RentalModel } from '../models/rental.model';
+
 	import Jumbo from '../components/jumbo.svelte';
 	import Rental from '../components/rental/index.svelte';
+
+	const COMMUNITY_CATEGORIES = ['Condo', 'Townhouse', 'Apartment'];
+
+	export async function load({ fetch }: { fetch: Function }) {
+		let response = await fetch('/api/rentals.json');
+		let { data } = await response.json();
+
+		let rentals = data.map((rental: { attributes: RentalModel; type: string }) => {
+			let { attributes } = rental;
+			let type = 'Community';
+
+			if (!COMMUNITY_CATEGORIES.includes(attributes.category)) {
+				type = 'Standalone';
+			}
+
+			// attributes as {} is used here to prevent a typescript error "'type' is specified more than once, so this usage will be overwritten."
+			return { type, ...(attributes as {}) };
+		});
+
+		return {
+			props: { rentals }
+		};
+	}
+</script>
+
+<script type="ts">
+	export let rentals: RentalModel[];
 </script>
 
 <Jumbo>
@@ -11,8 +40,8 @@
 
 <div class="rentals">
 	<ul class="results">
-		<li><Rental /></li>
-		<li><Rental /></li>
-		<li><Rental /></li>
+		{#each rentals as rental}
+			<li><Rental {rental} /></li>
+		{/each}
 	</ul>
 </div>

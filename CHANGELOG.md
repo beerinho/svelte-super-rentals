@@ -40,3 +40,10 @@
 - Create the new `Map` component
 - Add the Mapbox integration
 - Create the `stores.ts` file to store the mapbox access token so that it can be accessed from everywhere in the app
+
+## Part 1.7: Working with data
+
+- Add seed data, in the form of JSON files, to the project
+- Update the `index` route to load the data from the JSON file
+- Add new `Rental` model to keep typescript happy
+- Update the existing `Rental` component to receive the loaded data from the `index` route
