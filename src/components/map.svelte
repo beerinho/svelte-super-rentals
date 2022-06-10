@@ -10,10 +10,11 @@
 	export let width: string;
 	export let zoom: string;
 	export let alt = `Map image at coordinates ${lat},${lng}`;
+	export let styleClass: string = '';
 
 	$: src = `${MAPBOX_API}/${lng},${lat},${zoom}/${width}x${height}@2x?access_token=${token}`;
 </script>
 
-<div class="map">
+<div class="map {styleClass}">
 	<img {alt} {src} {width} {height} />
 </div>

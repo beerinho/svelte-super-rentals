@@ -10,8 +10,8 @@
 		let response = await fetch('/api/rentals.json');
 		let { data } = await response.json();
 
-		let rentals = data.map((rental: { attributes: RentalModel; type: string }) => {
-			let { attributes } = rental;
+		let rentals = data.map((rental: { attributes: RentalModel; type: string; id: string }) => {
+			let { id, attributes } = rental;
 			let type = 'Community';
 
 			if (!COMMUNITY_CATEGORIES.includes(attributes.category)) {
@@ -19,7 +19,7 @@
 			}
 
 			// attributes as {} is used here to prevent a typescript error "'type' is specified more than once, so this usage will be overwritten."
-			return { type, ...(attributes as {}) };
+			return { id, type, ...(attributes as {}) };
 		});
 
 		return {
