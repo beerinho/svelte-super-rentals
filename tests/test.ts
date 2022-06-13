@@ -69,6 +69,13 @@ test('viewing the details of a rental property', async ({ page }) => {
 	await page.locator('text=Grand Old Mansion').click();
 	// Assert it has taken you to the rental page
 	await expect(page).toHaveURL('/rentals/grand-old-mansion');
+
+	expect(await page.textContent('.share.button')).toBe('Share on Twitter');
+
+	const href = await page.getAttribute('.share.button', 'href');
+	const tweetURL = new URL(href);
+	expect(tweetURL.host).toBe('twitter.com');
+	expect(tweetURL.searchParams.get('url')).toBe(`${[page.url()]}`);
 });
 
 test('visiting /rentals/grand-old-mansion', async ({ page }) => {
