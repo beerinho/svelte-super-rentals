@@ -30,3 +30,8 @@
 
 - Add the rental/index and rental/image components
 - Hardcode some data to showcase the new components (this will be populated from somewhere else in the future)
+
+## Part 1.6: Interactive components
+
+- Update the `Rental/Image` component to be interactive
+
