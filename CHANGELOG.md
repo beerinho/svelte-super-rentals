@@ -35,3 +35,8 @@
 
 - Update the `Rental/Image` component to be interactive
 
+## Part 1.7: Reusable components
+
+- Create the new `Map` component
+- Add the Mapbox integration
+- Create the `stores.ts` file to store the mapbox access token so that it can be accessed from everywhere in the app
